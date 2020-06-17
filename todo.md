@@ -1,0 +1,3 @@
+-set up API calls insomnia
+-set up App basic user interface
+-use REST countries ???

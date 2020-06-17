@@ -13,7 +13,7 @@
     "vercel": "^19.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "HTTPS=true SSL_CRT_FILE=server.crt SSL_KEY_FILE=server.key react-scripts start",
     "prebuild": "CI=true react-scripts test --colors",
     "build": "react-scripts build",
     "test": "react-scripts test",
