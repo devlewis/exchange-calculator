@@ -21,7 +21,6 @@ class Form extends PureComponent {
   componentDidMount() {
     ApiService.getAll().then((res) => {
       {
-        console.log(res);
         this.setState({
           countries: Object.keys(res.conversion_rates),
           all: res.conversion_rates,
@@ -32,7 +31,6 @@ class Form extends PureComponent {
 
   handleChangeBaseCountry = (e) => {
     if (e.target.value) {
-      console.log(e.target.value);
       this.setState(
         {
           baseCountry: e.target.value,
@@ -62,10 +60,7 @@ class Form extends PureComponent {
 
   convert = (e) => {
     e.preventDefault();
-    console.log("I CLICKED!");
     let target = this.state.targetCountry;
-    console.log(this.state.total);
-    console.log(this.state.all);
     let newTotal = (this.state.total * this.state.all[target]).toFixed(2);
     console.log(newTotal);
     this.setState({ result: newTotal, submitted: true });
@@ -73,11 +68,9 @@ class Form extends PureComponent {
 
   reset = (e) => {
     e.preventDefault();
-    console.log("inside!");
     this.setState(
       {
         baseCountries: ["USD", "EUR"],
-        countries: [],
         baseCountry: "USD",
         targetCountry: "",
         total: 0,
