@@ -1,5 +1,19 @@
 .App {
   text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+img {
+  height: 2em;
+}
+
+.calc {
+  height: 2.5em;
+  margin-left: 30px;
+}
+
+.header {
+  font-family: "Work Sans", sans-serif;
 }
 
 .App-logo {

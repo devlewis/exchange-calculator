@@ -3,7 +3,7 @@ import config from "./config";
 const ApiService = {
   getAll() {
     return fetch(
-      `https://v6.exchangerate-api.com/v6/${config.API_KEY}/latest/EUR`,
+      `https://v6.exchangerate-api.com/v6/${config.API_KEY}/latest/USD`,
       {
         method: "GET",
       }
