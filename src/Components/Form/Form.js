@@ -7,7 +7,7 @@ class Form extends PureComponent {
     super(props);
 
     this.state = {
-      baseCountries: ["USA", "EUR"],
+      baseCountries: ["USD", "EUR"],
       countries: [],
       baseCountry: "",
       targetCountry: "",
@@ -24,6 +24,7 @@ class Form extends PureComponent {
         console.log(res);
         this.setState({
           countries: Object.keys(res.conversion_rates),
+          all: res.conversion_rates,
         });
       }
     });
@@ -86,6 +87,7 @@ class Form extends PureComponent {
             required
             value={base}
           >
+            <option>Select</option>
             {this.state.baseCountries.map((a, i) => (
               <option key={i} value={a}>
                 {a}
@@ -102,11 +104,13 @@ class Form extends PureComponent {
             required
             value={target}
           >
-            {this.state.countries.map((a, i) => (
-              <option key={i} value={a}>
-                {a}
-              </option>
-            ))}
+            {this.state.countries
+              .filter((a) => a !== base)
+              .map((a, i) => (
+                <option key={i} value={a}>
+                  {a}
+                </option>
+              ))}
           </select>
         </div>
         <div className="amount">
